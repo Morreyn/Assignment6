@@ -1,0 +1,56 @@
+/* This is a custom CSS stylesheet */
+
+
+body {
+    background-color: lightblue;
+}
+
+.header {
+    border-bottom: thin solid grey;
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+header h3 {
+    float: left;
+}
+
+#totalbox {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: center;
+    float: right;
+}
+
+.jumbotron {
+    text-align: center;
+    clear: both;
+    
+}
+
+#main {
+    display: none;
+}
+
+fieldset {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#other_box {
+    display: none;
+}
+
+#submit_btn {
+    text-align: center;
+}
+
+footer {
+    border-top: thin solid grey;
+    padding: 20px 0;
+    margin-top: 10px;
+    text-align: center;
+}

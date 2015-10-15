@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<!----------------------------------------------
+    SUBJECT: COMM644 Assignment 6
+    AUTHOR: Misty Morreyn
+---------------------------------------------->
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order Form</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header clearfix">
+            <h3 class="text-muted">Assignment6 Pizza Delivery</h3>
+            <div id="totalbox">
+                $0
+            </div>
+        </header>
+        <div class="jumbotron">
+            <h1>MahCompany Name</h1>
+            <p class="lead">"Press the button to start your pizza order!"</p>
+            <a id="start_button" class="btn btn-lg btn-success" href="#" role="button">Start</a>
+        </div>
+        <div id="main" class="row marketing">
+            <div class="col-lg-6">
+                <form>
+                    <fieldset>
+                        <legend>Delivery Information</legend>
+                        Name: <input type="text" id="delivery_name" name="name" value="john doe" />
+                        <br />
+                        Address Type:
+                        <select id="address_type" name="type">
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="business">Business</option>
+                            <option value="campus">Campus</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="dorm">Dorm</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input id="other_box" type="text" name="other" />
+                        <br />
+                        Street Address:
+                        <input type="text" id="delivery_street_address" value="12345 Straight Away St." />
+                        <br />
+                        <input type="text" id="delivery_optional_apt" value="apt 123/Ste 123/Rm 123" />
+                        <br />
+                        <input type="text" id="delivery_city" value="City" />
+                        <input type="text" id="delivery_state" value="TX" />
+                        <input type="text" id="delivery_zip" value="55555" />
+                        <br />
+                        Phone Number:
+                        <input type="text" id="phone" value="555-867-5309" />
+                        <br />
+                        Email:
+                        <input type="text" id="email" value="johndoe@pizza.com" />     
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Billing Information</legend>
+                        <input type="checkbox" name="bill_info_same" value="bill info same" />Same as delivery information <br />
+                        Name: <input type="text" name="bill_name" value="john doe" />
+                        <br />
+                        
+                        Street Address:
+                        <input type="text" name="bill_street_address" value="12345 Straight Away St." />
+                        <br />
+                        <input type="text" name="bill_optional_apt" value="apt 123/Ste 123/Rm 123" />
+                        <br />
+                        <input type="text" name="bill_city" value="City" />
+                        <input type="text" name="bill_state" value="TX" />
+                        <input type="text" name="bil_zip" value="55555" />
+                        <br />
+                        Credit Card Number:
+                        <input type="text" name="cc_number" value=" " />
+                        <br />
+                        CVC Code:
+                        <input type="text" name="cvc" value=" " />
+                        <br />
+                        Expiration:
+                        <select name="bill_month">
+                            <option value="jan">01-Jan</option>
+                            <option value="feb">02-Feb</option>
+                            <option value="mar">03-Mar</option>
+                            <option value="apr">04-Apr</option>
+                            <option value="may">05-May</option>
+                            <option value="jun">06-Jun</option>
+                            <option value="jul">07-Jul</option>
+                            <option value="aug">08-Aug</option>
+                            <option value="sep">09-Sep</option>
+                            <option value="oct">10-Oct</option>
+                            <option value="nov">11-Nov</option>
+                            <option value="dec">12-Dec</option>
+                        </select>
+                        <select name="bill_year">
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                        </select>
+                        <br />
+                    </fieldset>
+                
+            </div>
+            <div class="col-lg-6">
+                
+                    <fieldset>
+                        <legend>Build Your Order</legend>
+                        Dough Type:
+                        <input type="radio" name="hand_tossed" value="hand tossed" /> Hand Tossed
+                        
+                        <input type="radio" name="thin_crust" value="thin crust" /> Thin Crust
+                        
+                        <input type="radio" name="new_york_style" value="new york style" /> New York Style
+                        
+                        <input type="radio" name="gluten_free" value="gluten free" /> Gluten Free
+                        <br />
+                        Selection:
+                        <select name="pizza selection"></select>
+                        <br />
+                        Cheese:
+                        <select name="cheese">
+                            <option value="cheese_light">Light: no charge</option>
+                            <option value="cheese_normal" selected>Normal: no charge</option>
+                            <option value="cheese_extra">Extra: +$2.99</option>
+                            <option value="cheese_double">Double: +$3.99</option>
+                        </select>
+                        <br />
+                        Sauce:
+                        <select name="sauce">
+                            <option value="sauce_regular" selected>Regular Tomato: no charge</option>
+                            <option value="sauce_hearty">Hearty Tomato: +$.99</option>
+                            <option value="sauce_bbq">BBQ Sauce: +$1.99</option>
+                        </select>
+                        <br />
+                        Toppings: ($.99 extra for each)
+                        <br />
+                        <input type="checkbox" name="toppings" value="pepperoni" />Pepperoni 
+                        <input type="checkbox" name="toppings" value="sausage" />Sausage 
+                        <input type="checkbox" name="toppings" value="ham" />Ham
+                        <input type="checkbox" name="toppings" value="bacon" />Bacon 
+                        <br />
+                        <input type="checkbox" name="toppings" value="salami" />Salami 
+                        <input type="checkbox" name="toppings" value="peppers" />Peppers 
+                        <input type="checkbox" name="toppings" value="olives" />Olives 
+                        <input type="checkbox" name="toppings" value="jalapenos" />Jalapenos 
+                        <br />
+                        <input type="checkbox" name="toppings" value="mushrooms" />Mushrooms 
+                        <input type="checkbox" name="toppings" value="pineapple" />Pineapple 
+                        <input type="checkbox" name="toppings" value="onion" />Onion 
+                        <br />     
+                    </fieldset>
+                
+            </div>
+            
+            <div class="col-lg-12">
+                <div id="submit_btn">
+                    <input id="form_submit" type="submit" class="btn-lg" value="Finished Building Pizza">
+                </div>
+            </div>
+            </form>
+        </div>
+        <footer class="footer">
+            <p>&copy; Morreyn 2015</p>
+        </footer>
+    </div>
+<!-- javascript -->
+    <script src="js/Assignment6.js"></script>
+</body>
+</html>
