@@ -32,20 +32,39 @@ header h3 {
 }
 
 #main {
-    display: none;
+   /* display: none;*/ /*Uncomment when showSection() is ready */
 }
-
+/*
 fieldset {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-#other_box {
-    display: none;
+#field1 label, #field2 label{
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+input {
+    display: inline-block;
+}
+*/
+
+#field1 label, #field2 label {
+    text-align: left;
 }
 
-#submit_btn {
+#submit-btn {
     text-align: center;
+}
+
+.highlight {
+    background-color: #FF9999;
+    color: #FFFFFF;
+}
+
+#other-box {
+    display: none;
 }
 
 footer {
