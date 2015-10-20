@@ -15,14 +15,20 @@ header h3 {
     float: left;
 }
 
-#totalbox {
-    width: 100px;
-    height: 100px;
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 10px 0;
+#total-box {
+    width: 300px;
+    height: 50px;
+    font-weight: bold;
+    margin: 30px auto 0px auto;
     text-align: center;
-    float: right;
+    font-size: 2em;
+    background-color: lightblue;
+}
+
+#total {
+    background-color: lightblue;
+    border: 0;
+    width: 100px;
 }
 
 .jumbotron {
@@ -31,8 +37,8 @@ header h3 {
     
 }
 
-#main {
-   /* display: none;*/ /*Uncomment when showSection() is ready */
+.mainhide {
+   display: none; /*change container div, billing section, form-submit, and totalbox to to .mainhide when ready*/
 }
 /*
 fieldset {
@@ -54,8 +60,9 @@ input {
     text-align: left;
 }
 
-#submit-btn {
+.align-btn {
     text-align: center;
+    margin-top: 20px;
 }
 
 .highlight {

@@ -17,14 +17,15 @@
     <div class="container">
         <header class="header clearfix">
             <h3 class="text-muted">Assignment6 Pizza Delivery</h3>
-            <div id="totalbox">
-                $0
-            </div>
         </header>
         <div class="jumbotron">
             <h1>MahCompany Name</h1>
             <p class="lead">"Press the button to start your pizza order!"</p>
             <a id="start-button" class="btn btn-lg btn-success" href="#" role="button">Start</a>
+            <div id="total-box" class="">
+                <label for="total">Total: $</label>
+                <input type="text" id="total" name="total" readonly />
+            </div>
         </div>
         <div id="main" class="row marketing">
             <div class="col-lg-6">
@@ -106,83 +107,83 @@
                     </fieldset>
 
                     
-                    <div class="form-group">
+                    <div id="billing_info_div" class="form-group">
                         <fieldset id="field2">
                             <legend>Billing Information</legend>
                             <div class="form-group">
-                                <input type="checkbox" name="bill-info-same"/>
+                                <input type="checkbox" name="bill_info_same" id="bill_info_same"/>
 
-                                <label for="bill-info-same" class="control-label">Same as delivery information</label>
+                                <label for="bill_info_same" class="control-label">Same as delivery information</label>
                             </div>
                             <div class="form-group">
-                                <label for="bill-name" class="control-label col-sm-3">Name:</label>
+                                <label for="bill_name" class="control-label col-sm-3">Name:</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="bill-name" class="form-control" placeholder="john doe" />
+                                    <input type="text" name="bill_name" class="form-control" placeholder="john doe" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="bill-street-address" class="control-label col-sm-3">Street Address:</label>
+                                <label for="bill_street_address" class="control-label col-sm-3">Street Address:</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="bill-street-address" class="form-control" placeholder="12345 Straight Away St." />
+                                    <input type="text" name="bill_street_address" class="form-control" placeholder="12345 Straight Away St." />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="bill-optional-apt" class="control-label col-sm-3"></label>
+                                <label for="bill_optional_apt" class="control-label col-sm-3"></label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="bill-optional-apt" class="form-control" placeholder="apt 123/Ste 123/Rm 123" />
+                                    <input type="text" name="bill_optional_apt" class="form-control" placeholder="apt 123/Ste 123/Rm 123" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="bill-city" class="control-label col-sm-3"></label>
+                                <label for="bill_city" class="control-label col-sm-3"></label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="bill-city" class="form-control" placeholder="City" />
+                                    <input type="text" name="bill_city" class="form-control" placeholder="City" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="bill-state" class="control-label col-sm-3"></label>
+                                <label for="bill_state" class="control-label col-sm-3"></label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="bill-state" class="form-control" placeholder="TX" />
+                                    <input type="text" name="bill_state" class="form-control" placeholder="TX" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="bill-zip" class="control-label col-sm-3"></label>
+                                <label for="bill_zip" class="control-label col-sm-3"></label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="bil-zip" class="form-control" placeholder="55555" />
+                                    <input type="text" name="bill_zip" class="form-control" placeholder="55555" />
                                 </div>
                             
                             </div>
                             <div class="form-group">
-                                <label for="cc-number" class="control-label col-sm-3">Credit Card Number:</label>
+                                <label for="cc_number" class="control-label col-sm-3">Credit Card Number:</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="cc-number" class="form-control" value=" " />
+                                    <input type="text" name="cc_number" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="cvc" class="control-label col-sm-3">CVC Code</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="cvc" class="form-control" value=" " />
+                                    <input type="text" name="cvc" class="form-control" placeholder = "123" />
                                 </div>
                             </div>
                             <div class="form-group">
-                            <label for="bill-month" class="control-label col-sm-3">Expiration</label>
+                            <label for="bill_month" class="control-label col-sm-3">Expiration</label>
                                 <div class="col-sm-4">
-                                    <select name="bill-month" class="form-control">
-                                        <option value="jan">01-Jan</option>
-                                        <option value="feb">02-Feb</option>
-                                        <option value="mar">03-Mar</option>
-                                        <option value="apr">04-Apr</option>
-                                        <option value="may">05-May</option>
-                                        <option value="jun">06-Jun</option>
-                                        <option value="jul">07-Jul</option>
-                                        <option value="aug">08-Aug</option>
-                                        <option value="sep">09-Sep</option>
-                                        <option value="oct">10-Oct</option>
-                                        <option value="nov">11-Nov</option>
-                                        <option value="dec">12-Dec</option>
+                                    <select name="bill_month" class="form-control">
+                                        <option value="1">01-Jan</option>
+                                        <option value="2">02-Feb</option>
+                                        <option value="3">03-Mar</option>
+                                        <option value="4">04-Apr</option>
+                                        <option value="5">05-May</option>
+                                        <option value="6">06-Jun</option>
+                                        <option value="7">07-Jul</option>
+                                        <option value="8">08-Aug</option>
+                                        <option value="9">09-Sep</option>
+                                        <option value="10">10-Oct</option>
+                                        <option value="11">11-Nov</option>
+                                        <option value="12">12-Dec</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
-                                    <select name="bill-year" class="form-control">
+                                    <select name="bill_year" class="form-control">
                                         <option value="2015">2015</option>
                                         <option value="2016">2016</option>
                                         <option value="2017">2017</option>
@@ -196,13 +197,13 @@
                     </div>
             </div>
                 
-            <div class="col-lg-6">
+            <div id="build-order-section" class="col-lg-6">
                 <div class="form-group">
                     <fieldset id="field3">
                         <legend>Build Your Order</legend>
-                        <div class="form-group">
+                        <div id="dough" class="form-group">
                             <label for="radio" class="control-label col-sm-3">Dough Type:</label>
-                            <div class="col-sm-9">
+                            <div id="potential_error_placement" class="col-sm-9">
                             <input type="radio" name="dough" value="hand tossed" /> Hand Tossed
                             <br />
                             <input type="radio" name="dough" value="thin crust" /> Thin Crust
@@ -212,13 +213,13 @@
                             <input type="radio" name="dough" value="gluten free" /> Gluten Free
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="pizza-selection" class="control-label col-sm-3">Selection:</label>
+                        <div id="dough_box" class="form-group mainhide">
+                            <label for="pizza_selection" class="control-label col-sm-3">Selection:</label>
                             <div class="col-sm-8">
-                                <select name="pizza-selection" class="form-control"></select>
+                                <select name="pizza_selection" id="pizza_selection" class="form-control"></select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div id="cheese_box" class="form-group mainhide">
                             <label for="cheese" class="control-label col-sm-3">Cheese:</label>
                             <div class="col-sm-8">
                             <select name="cheese" class="form-control">
@@ -229,8 +230,7 @@
                             </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            
+                        <div id="sauce_box" class="form-group mainhide">
                             <label for="sauce" class="control-label col-sm-3">Sauce:</label>
                             <div class="col-sm-8">
                             <select name="sauce" class="form-control">
@@ -240,7 +240,7 @@
                             </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div id="toppings_box" class="form-group mainhide">
                             <label for="toppings" class="control-label col-sm-6">Toppings: ($.99 extra for each)</label>
                             <div class="col-sm-12">
                             <br />
@@ -264,8 +264,13 @@
             </div>
             
             <div class="col-lg-12">
-                <div id="submit-btn" class="form-group">
-                    <input id="form-submit" type="button" class="form control btn-lg" value="Finished Building Pizza">
+                <div id="build-submit-btn" class="form-group align-btn">
+                    <input id="fin-build-btn" type="button" class="form control btn-lg" value="Finished Building Pizza">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div id="all-submit-btn" class="form-group align-btn">
+                    <input id="form-submit" type="button" class="form control btn-lg" value="Place Your Order">
                 </div>
             </div>
             </form>
