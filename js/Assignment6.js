@@ -10,6 +10,7 @@ function $(id) {
 
 
 /*Shows main section*/
+
 var startButton = $("start-button"),
     totalBox = $("total-box"),
     mainSection = $("main");
@@ -249,6 +250,7 @@ function billingValidation() {
         regState = /^([a-zA-Z]){2}$/,
         regZip = /^[0-9]{5}(?:-[0-9 ]{4})?$/,
         regCVC = /^[0-9]{3,4}$/,
+        ccNum,
         currentDate,
         currentMonth,
         expirationMonth,
@@ -296,6 +298,8 @@ function billingValidation() {
         document.form.cc_number.className += " highlight";
         return false;
     }
+    
+    ccNum = document.form.cc_number.value;
         
     /*CVC validation*/
 
@@ -326,7 +330,50 @@ function billingValidation() {
 
 }
 
+function creditCardValidation() {
+    "use strict";
+    var ccNum = "123456789";
+    
+/*First validate card based on entering numbers only, etc. Insert that code here.*/
+        
+    function luhnFormula() {
+        var reversedCCNum = ccNum.split("").reverse();
+        window.console.log(reversedCCNum);
 
+        for (var i=1; i < reversedCCNum.length; i = i + 2) {
+            reversedCCNum[i] = reversedCCNum[i] * 2;
+        }
+
+        var doubledCCNum = reversedCCNum.join("");
+        doubledCCNum = doubledCCNum.split("");
+        var totaledCCNum = 0;
+
+        for (var i=0; i < doubledCCNum.length; i++) {
+            var intermediate = parseInt(doubledCCNum[i])
+            totaledCCNum += intermediate;
+        }
+
+        var checksummed = totaledCCNum/10;
+
+        if (totaledCCNum % 10 !== 0) {
+            var elemento = document.createElement("option"); //Why is none of this working? Figure that out.
+            elemento.textContent = "Invalid CC Number";
+            elemento.value = "error";
+            document.form.cc_number.appendChild(elemento);
+
+            window.console.log("Error in credit card number");
+            document.form.cc_number.focus();
+            document.form.cc_number.className += " highlight";
+            return false;
+        } else if (totaledCCNum % 10 === 0) {
+            console.log("valid");
+            return true;
+        }
+    }
+    window.console.log(checksummed);
+}
+
+creditCardValidation();
 
 
 
