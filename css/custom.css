@@ -64,6 +64,17 @@ header img {
     color: #5e8d89;
 }
 
+.error {
+    color: darkred;
+    font-weight: bold;
+    text-align: right;
+}
+
+.cardDisplay {
+    color: darkgreen;
+    font-weight: bold;
+    text-align: right;
+}
 
 #field3 div {
     margin: 10px 0;
