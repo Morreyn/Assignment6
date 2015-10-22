@@ -11,23 +11,24 @@
     <title>Pizza Order Form</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div class="container">
         <header class="header clearfix">
-            <h3 class="text-muted">Assignment6 Pizza Delivery</h3>
+            <img src="images/logo.png" />
         </header>
         <div class="jumbotron">
-            <h1>MahCompany Name</h1>
-            <p class="lead">"Press the button to start your pizza order!"</p>
+            <h1>Mamma Misty's</h1>
+            <p id="intro-text" class="lead">"Press the button to start your pizza order!"</p>
             <a id="start-button" class="btn btn-lg btn-success" href="#" role="button">Start</a>
-            <div id="total-box" class="">
+            <div id="total-box" class="mainhide">
                 <label for="total">Total: $</label>
                 <input type="text" id="total" name="total" readonly />
             </div>
         </div>
-        <div id="main" class="row marketing">
+        <div id="main" class="row marketing mainhide">
             <div class="col-lg-6">
                 <form name="form" role="form" class="form-horizontal">
                     
@@ -107,7 +108,7 @@
                     </fieldset>
 
                     
-                    <div id="billing_info_div" class="form-group">
+                    <div id="billing_info_div" class="form-group mainhide">
                         <fieldset id="field2">
                             <legend>Billing Information</legend>
                             <div class="form-group">
@@ -152,10 +153,10 @@
                                 </div>
                             
                             </div>
-                            <div class="form-group">
+                            <div  class="form-group">
                                 <label for="cc_number" class="control-label col-sm-3">Credit Card Number:</label>
-                                <div class="col-sm-8">
-                                    <input type="text" name="cc_number" class="form-control" />
+                                <div id="cc_number_div" class="col-sm-8">
+                                    <input type="text" name="cc_number" id="cc_number" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -242,28 +243,24 @@
                         </div>
                         <div id="toppings_box" class="form-group mainhide">
                             <label for="toppings" class="control-label col-sm-6">Toppings: ($.99 extra for each)</label>
-                            <div class="col-sm-12">
-                            <br />
+                            <div id="toppings_inner_box" class="col-sm-12">
                             <input type="checkbox" name="toppings" value="pepperoni" />Pepperoni 
                             <input type="checkbox" name="toppings" value="sausage" />Sausage 
                             <input type="checkbox" name="toppings" value="ham" />Ham
                             <input type="checkbox" name="toppings" value="bacon" />Bacon 
-                            <br />
                             <input type="checkbox" name="toppings" value="salami" />Salami 
                             <input type="checkbox" name="toppings" value="peppers" />Peppers 
                             <input type="checkbox" name="toppings" value="olives" />Olives 
                             <input type="checkbox" name="toppings" value="jalapenos" />Jalapenos 
-                            <br />
                             <input type="checkbox" name="toppings" value="mushrooms" />Mushrooms 
                             <input type="checkbox" name="toppings" value="pineapple" />Pineapple 
                             <input type="checkbox" name="toppings" value="onion" />Onion
-                            </div>
                         </div>   
                     </fieldset>
                 </div>
             </div>
             
-            <div class="col-lg-12">
+            <div id="fin-pizza-btn" class="col-lg-12">
                 <div id="build-submit-btn" class="form-group align-btn">
                     <input id="fin-build-btn" type="button" class="form control btn-lg" value="Finished Building Pizza">
                 </div>
@@ -276,8 +273,11 @@
             </form>
         </div>
         <footer class="footer">
-            <p>&copy; Morreyn 2015</p>
+            <p>Website &copy; Morreyn 2015 | Images &copy; LootCastle 2015</p>
         </footer>
+    </div>
+    <div id="end" class="mainhide">
+        <h1>Your order has been placed. Thank you for choosing Mamma Misty's!</h1>
     </div>
 <!-- javascript -->
     <script src="js/Assignment6.js"></script>

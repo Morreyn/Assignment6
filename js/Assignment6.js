@@ -13,12 +13,15 @@ function $(id) {
 
 var startButton = $("start-button"),
     totalBox = $("total-box"),
+    introText = $("intro-text"),
     mainSection = $("main");
 
 function showSection() {
     "use strict";
     totalBox.style.display = "block";
     mainSection.style.display = "block";
+    startButton.style.display = "none";
+    introText.style.display = "none";
 }
 
 
@@ -166,66 +169,73 @@ function formValidation() {
 
     if (document.form.name.value.length === 0 || regName.test(document.form.name.value) === true) {
         window.console.log("Error in name!");
-//        document.form.name.focus();
-        document.form.name.className += " highlight";
+        document.form.name.style.backgroundColor = "#FF9999";
         return false;
     } else {
-        /*Not working correctly, removes ALL classes*/
-        /*if (form.name.className = "highlight") {
-            form.name.classList.remove("highlight");
-        }*/
-        
-        
+        document.form.name.style.backgroundColor = "#FFFFFF";
     }
     
     if (document.form.addtype.value === "other" && document.form.other.value.length === 0) {
         window.console.log("Error in Address Type!");
-//        document.form.other.focus();
-        document.form.other.className += " highlight";
+        document.form.other.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.other.style.backgroundColor = "#FFFFFF";
     }
 
     if (document.form.delivery_street_address.value.length === 0) {
         window.console.log("Error in Street Address!");
-        /*document.form.delivery_street_address.focus();*/
-        document.form.delivery_street_address.className += " highlight";
+        document.form.delivery_street_address.focus();
+        document.form.delivery_street_address.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.delivery_street_address.style.backgroundColor = "#FFFFFF";
     }
     
     if (document.form.delivery_city.value.length === 0) {
         window.console.log("Error in City");
         /*document.form.delivery_city.focus();*/
-        document.form.delivery_city.className += " highlight";
+        document.form.delivery_city.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.delivery_city.style.backgroundColor = "#FFFFFF";
     }
    
     if (document.form.delivery_state.value.length === 0 || regState.test(document.form.delivery_state.value) === false) {
         window.console.log(document.form.delivery_state.value);
         window.console.log("Error in State");
         document.form.delivery_state.focus();
-        document.form.delivery_state.className += " highlight";
+        document.form.delivery_state.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.delivery_state.style.backgroundColor = "#FFFFFF";
     }
     
     if (document.form.delivery_zip.value.length === 0 || regZip.test(document.form.delivery_zip.value) === false) {
         window.console.log("Error in Zip");
         document.form.delivery_zip.focus();
-        document.form.delivery_zip.className += " highlight";
+        document.form.delivery_zip.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.delivery_zip.style.backgroundColor = "#FFFFFF";
     }
    
     if (document.form.phone.value.length === 0 || regPhone.test(document.form.phone.value) === false) {
         window.console.log("Error in Phone");
         document.form.phone.focus();
-        document.form.phone.className += " highlight";
+        document.form.phone.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.phone.style.backgroundColor = "#FFFFFF";
     }
      
     if (document.form.email.value.length === 0 || regEmail.test(document.form.email.value) === false) {
         window.console.log("Error in Email");
         document.form.email.focus();
-        document.form.email.className += " highlight";
+        document.form.email.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.email.style.backgroundColor = "#FFFFFF";
     }
     
     for (i = 0; i < doughRadios.length; i++) {
@@ -250,64 +260,85 @@ function billingValidation() {
         regState = /^([a-zA-Z]){2}$/,
         regZip = /^[0-9]{5}(?:-[0-9 ]{4})?$/,
         regCVC = /^[0-9]{3,4}$/,
-        ccNum,
+        elemento,
+        cCNum,
+        cCDiv = $("cc_number_div"),
         currentDate,
         currentMonth,
         expirationMonth,
         currentYear,
-        expirationYear;
+        expirationYear,
+        endText;
     
     if (sameAsDelivery.checked !== true) {
         if (document.form.bill_name.value.length === 0 || regName.test(document.form.bill_name.value) === true) {
             window.console.log("Error in billing name!");
-            document.form.bill_name.className += " highlight";
+            document.form.bill_name.style.backgroundColor = "#FF9999";
             return false;
+        } else {
+            document.form.bill_name.style.backgroundColor = "#FFFFFF";
         }
+        
         if (document.form.bill_street_address.value.length === 0) {
             window.console.log("Error in billing street address!");
-            document.form.bill_street_address.className += " highlight";
+            document.form.bill_street_address.style.backgroundColor = "#FF9999";
             return false;
+        } else {
+            document.form.bill_street_address.style.backgroundColor = "#FFFFFF";
         }
 
         if (document.form.bill_city.value.length === 0) {
             window.console.log("Error in billing city");
-            document.form.bill_city.className += " highlight";
+            document.form.bill_city.style.backgroundColor = "#FF9999";
             return false;
+        } else {
+            document.form.bill_city.style.backgroundColor = "#FFFFFF";
         }
 
         if (document.form.bill_state.value.length === 0 || regState.test(document.form.bill_state.value) === false) {
             window.console.log("Error in billing state");
             document.form.bill_state.focus();
-            document.form.bill_state.className += " highlight";
+            document.form.bill_state.style.backgroundColor = "#FF9999";
             return false;
+        } else {
+            document.form.bill_state.style.backgroundColor = "#FFFFFF";
         }
 
         if (document.form.bill_zip.value.length === 0 || regZip.test(document.form.bill_zip.value) === false) {
             window.console.log("Error in billing zip");
             document.form.bill_zip.focus();
-            document.form.bill_zip.className += " highlight";
+            document.form.bill_zip.style.backgroundColor = "#FF9999";
             return false;
+        } else {
+            document.form.bill_zip.style.backgroundColor = "#FFFFFF";
         }
     }
     
     /*Credit Card Number Validation*/
         
     if (document.form.cc_number.value.length === 0) {
-        window.console.log("Error in credit card number");
+        elemento = document.createElement("option");
+        elemento.textContent = "Please enter a CC Number";
+        elemento.value = "error";
+        cCDiv.appendChild(elemento);
         document.form.cc_number.focus();
-        document.form.cc_number.className += " highlight";
+        document.form.cc_number.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.cc_number.style.backgroundColor = "#FFFFFF";
     }
     
-    ccNum = document.form.cc_number.value;
+    cCNum = document.form.cc_number.value;
         
     /*CVC validation*/
 
     if (document.form.cvc.value.length === 0 || regCVC.test(document.form.cvc.value) === false) {
         window.console.log("Error in CVC code");
         document.form.cvc.focus();
-        document.form.cvc.className += " highlight";
+        document.form.cvc.style.backgroundColor = "#FF9999";
         return false;
+    } else {
+        document.form.cvc.style.backgroundColor = "#FFFFFF";
     }
 
     /*CC Expiration Date Validation*/
@@ -321,6 +352,7 @@ function billingValidation() {
     if (expirationYear === currentYear || expirationYear <= currentYear) {
         if (expirationMonth <= currentMonth) {
             window.alert("Your card is expired. Please put in another card.");
+            return false;
         } else if (expirationMonth > currentMonth) {
             window.console.log("Card expiration is valid");
         }
@@ -328,73 +360,128 @@ function billingValidation() {
         window.console.log("Card expiration is valid");
     }
 
+    mainSection.style.display = "none";
+    endText = $("end");
+    endText.style.display = "block";
+    window.alert("Your order is complete!");
 }
+
+/*Testing CC Validation Funciton*/
 
 function creditCardValidation() {
     "use strict";
-    var ccNum = "123456789";
+    var cCNum = document.form.cc_number.value,
+        splitCCNum = cCNum.split(""),
+        ccValue = document.form.cc_number.value,
+        checksummed,
+        regCC = /^\d+$/,
+        cCDiv = $("cc_number_div");
     
-/*First validate card based on entering numbers only, etc. Insert that code here.*/
-        
-    function luhnFormula() {
-        var reversedCCNum = ccNum.split("").reverse();
-        window.console.log(reversedCCNum);
+    function cCError(text) {
+        window.console.log(cCDiv.childElementCount);
+        if (cCDiv.childElementCount === 1) {
+            var elemento = document.createElement("option");
+            elemento.textContent = text;
+            elemento.value = "error";
+            cCDiv.appendChild(elemento);
 
-        for (var i=1; i < reversedCCNum.length; i = i + 2) {
+            document.form.cc_number.focus();
+            document.form.cc_number.style.backgroundColor = "#FF9999";
+            return false;
+        } else {
+            cCDiv.childNodes[1].textContent = text;
+        }
+    }
+    
+    function luhnFormula() {
+        var reversedCCNum, i, doubledCCNum, totaledCCNum, intermediate;
+        
+        reversedCCNum = splitCCNum.reverse();
+
+        for (i = 1; i < reversedCCNum.length; i = i + 2) {
             reversedCCNum[i] = reversedCCNum[i] * 2;
         }
 
-        var doubledCCNum = reversedCCNum.join("");
+        doubledCCNum = reversedCCNum.join("");
         doubledCCNum = doubledCCNum.split("");
-        var totaledCCNum = 0;
+        totaledCCNum = 0;
 
-        for (var i=0; i < doubledCCNum.length; i++) {
-            var intermediate = parseInt(doubledCCNum[i])
+        for (i = 0; i < doubledCCNum.length; i++) {
+            intermediate = parseInt(doubledCCNum[i], 10);
             totaledCCNum += intermediate;
         }
 
-        var checksummed = totaledCCNum/10;
+        checksummed = totaledCCNum / 10;
 
         if (totaledCCNum % 10 !== 0) {
-            var elemento = document.createElement("option"); //Why is none of this working? Figure that out.
-            elemento.textContent = "Invalid CC Number";
-            elemento.value = "error";
-            document.form.cc_number.appendChild(elemento);
-
-            window.console.log("Error in credit card number");
-            document.form.cc_number.focus();
-            document.form.cc_number.className += " highlight";
-            return false;
+            cCError("Invalid CC Number");
         } else if (totaledCCNum % 10 === 0) {
-            console.log("valid");
+            window.console.log("valid");
             return true;
         }
     }
-    window.console.log(checksummed);
+    
+    function displayCCType(text) {
+        if (cCDiv.childElementCount === 1) {
+            var elemento = document.createElement("option");
+            elemento.textContent = text;
+            elemento.value = text;
+            cCDiv.appendChild(elemento);
+        } else {
+            cCDiv.childNodes[1].textContent = text;
+        }
+    }
+    
+    if (regCC.test(cCNum) === false) {
+        cCError("Numbers only");
+        return false;
+    } else if (splitCCNum.length !== 13 && splitCCNum.length !== 15 && splitCCNum.length !== 16) {
+        cCError("Invalid CC Number Length");
+        return false;
+    } else if (regCC.test(cCNum) === true && (splitCCNum.length === 13 || splitCCNum.length === 15 || splitCCNum.length === 16)) {
+        if ((splitCCNum.length === 16 || splitCCNum.length === 13) && splitCCNum[0] === "4") {
+            cCDiv.removeChild(cCDiv.childNodes[2]);
+            displayCCType("Visa");
+            luhnFormula();
+            document.form.cc_number.style.backgroundColor = "#FFFFFF";
+        } else if (splitCCNum.length === 16 && splitCCNum[0] === "5" && splitCCNum[1] >= "1" && splitCCNum[1] <= "5") {
+            cCDiv.removeChild(cCDiv.childNodes[2]);
+            displayCCType("Mastercard");
+            luhnFormula();
+            document.form.cc_number.style.backgroundColor = "#FFFFFF";
+        } else if (splitCCNum.length === 15 && splitCCNum[0] === "3" && splitCCNum[1] === "7") {
+            cCDiv.removeChild(cCDiv.childNodes[2]);
+            displayCCType("American Express");
+            luhnFormula();
+            document.form.cc_number.style.backgroundColor = "#FFFFFF";
+        } else {
+            cCError("Unrecognized Credit Card");
+            return false;
+        }
+    }
+
 }
 
-creditCardValidation();
-
-
+var creditCard = $("cc_number");
+creditCard.addEventListener("blur", creditCardValidation, false);
 
 /*Build Your Order Confirmation*/
 
 function finishedBuildingPizza() {
     "use strict";
     var billingInfoDiv = $("billing_info_div"),
+        finPizzaBtnDiv = $("fin-pizza-btn"),
         result,
         conBox = window.confirm('Press "OK" if you\'re finished building your pizza');
-    window.console.log(conBox);
     
     if (conBox === false) {
         formValidation();
     } else if (conBox === true) {
-        window.console.log(result + " this is working");
         result = formValidation();
         if (result === true) {
             billingInfoDiv.style.display = "block";
             finalButton.style.display = "block";
-            finishedBuildingPizzaButton.setAttribute("class", "mainhide");
+            finPizzaBtnDiv.setAttribute("class", "mainhide");
         }
     }
 }
@@ -408,25 +495,13 @@ function calTotal() {
         doughType = document.form.pizza_selection.value,
         total = $("total"),
         totalCalc = 0.00;
-    
 
     totalCalc += parseFloat(doughType);
     
-    if (document.form.cheese.value === "cheese-extra") {
-        totalCalc += 2.99;
-    }
-    
-    if (document.form.cheese.value === "cheese-double") {
-        totalCalc += 3.99;
-    }
-    
-    if (document.form.sauce.value === "sauce-hearty") {
-        totalCalc += 0.99;
-    }
-    
-    if (document.form.sauce.value === "sauce-bbq") {
-        totalCalc += 1.99;
-    }
+    if (document.form.cheese.value === "cheese-extra") {totalCalc += 2.99;}
+    if (document.form.cheese.value === "cheese-double") {totalCalc += 3.99;}
+    if (document.form.sauce.value === "sauce-hearty") {totalCalc += 0.99;}
+    if (document.form.sauce.value === "sauce-bbq") {totalCalc += 1.99;}
     
     for (i = 0; i < toppingChecks.length; i++) {
         if (toppingChecks[i].checked === true) {
@@ -442,8 +517,8 @@ buildPizzaSection.addEventListener("change", calTotal, false);
 
 /*'Finished Building Pizza' Button*/
 
-var finishedBuildingPizzaButton = $("fin-build-btn");
-finishedBuildingPizzaButton.addEventListener("click", finishedBuildingPizza, false);
+var finishedBuildingPizzaBtn = $("fin-build-btn");
+finishedBuildingPizzaBtn.addEventListener("click", finishedBuildingPizza, false);
 
 /*Form Submit Button*/
 

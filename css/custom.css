@@ -2,7 +2,7 @@
 
 
 body {
-    background-color: lightblue;
+    background-color: #FFFFFF;
 }
 
 .header {
@@ -11,8 +11,11 @@ body {
     margin-bottom: 30px;
 }
 
-header h3 {
-    float: left;
+header img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: auto;
 }
 
 #total-box {
@@ -22,11 +25,11 @@ header h3 {
     margin: 30px auto 0px auto;
     text-align: center;
     font-size: 2em;
-    background-color: lightblue;
+    background-color: #FFFFFF;
 }
 
 #total {
-    background-color: lightblue;
+    background-color: #FFFFFF;
     border: 0;
     width: 100px;
 }
@@ -34,30 +37,53 @@ header h3 {
 .jumbotron {
     text-align: center;
     clear: both;
+    background: url(../images/background.png) no-repeat center;
+
+    
+    
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bold;
     
 }
 
+.jumbotron h1, #intro-text {
+    color: #FFFFFF;
+}
+
+#start-button {
+    background-color: #3f95d1;
+    border-color: #3f95d1;
+}
+
 .mainhide {
-   display: none; /*change container div, billing section, form-submit, and totalbox to to .mainhide when ready*/
-}
-/*
-fieldset {
-    margin-top: 20px;
-    margin-bottom: 20px;
+   display: none; /*change id="main", billing section, form-submit, and totalbox to to .mainhide when ready*/
 }
 
-#field1 label, #field2 label{
-    display: inline-block;
-    width: 150px;
+#field1 label, #field2 label, #field3 label {
     text-align: left;
+    color: #5e8d89;
 }
-input {
-    display: inline-block;
-}
-*/
 
-#field1 label, #field2 label {
-    text-align: left;
+
+#field3 div {
+    margin: 10px 0;
+}
+
+#toppings_inner_box {
+    width: 500px;
+}
+
+#field3 {
+    color: #3f95d1;
+}
+
+#field3 label {
+    margin-top: 15px;
+}
+
+#field3 input {
+    margin: 5px;
+    color: #3f95d1;
 }
 
 .align-btn {
@@ -65,13 +91,26 @@ input {
     margin-top: 20px;
 }
 
-.highlight {
-    background-color: #FF9999;
-    color: #FFFFFF;
-}
-
 #other-box {
     display: none;
+}
+
+#fin-build-btn, #form-submit {
+    background-color: #3f95d1;
+    border-color: #3f95d1;
+    color: #FFFFFF;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#form-submit {
+    display: none;
+    margin: 10px auto 0 auto;
+}
+
+#end h1 {
+    text-align: center;
+    color: #3f95d1;
+    font-family: 'Varela Round', sans-serif;
 }
 
 footer {
