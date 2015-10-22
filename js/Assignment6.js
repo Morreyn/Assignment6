@@ -8,11 +8,12 @@ function $(id) {
     return document.getElementById(id);
 }
 
-
-/*Shows main section*/
-
-var startButton = $("start-button"),
-    totalBox = $("total-box"),
+/*----------------------------------------------
+    Reaveals Main Section
+------------------------------------------------*/
+var startButton = $("start-button");
+    
+var totalBox = $("total-box"),
     introText = $("intro-text"),
     mainSection = $("main");
 
@@ -24,13 +25,14 @@ function showSection() {
     introText.style.display = "none";
 }
 
-
 startButton.addEventListener("click", showSection, false);
 
-/* Shows "other" option of Address Type */
+/*----------------------------------------------
+   Shows "other" option of Address Type
+------------------------------------------------*/
 
 var addressType = $("address-type");
-addressType.addEventListener("change", addressTypeOther, false);
+
 
 function addressTypeOther() {
     "use strict";
@@ -42,7 +44,10 @@ function addressTypeOther() {
     }
 }
 
-/* Filling Billing Area with Delivery Information */
+addressType.addEventListener("change", addressTypeOther, false);
+/*----------------------------------------------
+ Filling Billing Area with Delivery Information
+------------------------------------------------*/
 
 var sameAsDelivery = $("bill_info_same");
 
@@ -69,11 +74,12 @@ function fillBilling() {
 
 sameAsDelivery.addEventListener("change", fillBilling, false);
 
-
-/* Populating Dough Selections */
+/*----------------------------------------------
+    Populating Dough Selections
+------------------------------------------------*/
 
 var doughType = document.getElementById("dough");
-doughType.addEventListener("click", doughSelections, false);
+
 
 var handTossedPrices = {
     Small: 9.99,
@@ -108,52 +114,60 @@ function doughSelections() {
         toppingsBox = $("toppings_box");
     pizzaSelectionDiv.style.display = "block";
     
-    pizzaSelectionBox.addEventListener("click", showCheeseSauceToppings, false);
-    
     function showCheeseSauceToppings() {
         cheeseBox.style.display = "block";
         sauceBox.style.display = "block";
         toppingsBox.style.display = "block";
     }
     
-    if (document.form.dough.value === "hand tossed") {
-        
-        Object.getOwnPropertyNames(handTossedPrices).forEach(function (val, obj) {
-            elemento = document.createElement("option");
-            elemento.textContent = val + " ($" + handTossedPrices[val] + ")";
-            elemento.value = handTossedPrices[val];
-            pizzaSelectionBox.appendChild(elemento);
-        });
+    pizzaSelectionBox.addEventListener("click", showCheeseSauceToppings, false);
 
-    } else if (document.form.dough.value === "thin crust") {
-        Object.getOwnPropertyNames(thinCrustPrices).forEach(function (val, obj) {
-            elemento = document.createElement("option");
-            elemento.textContent = val + " ($" + thinCrustPrices[val] + ")";
-            elemento.value = thinCrustPrices[val];
-            pizzaSelectionBox.appendChild(elemento);
-        });
-        
-    } else if (document.form.dough.value === "new york style") {
-        Object.getOwnPropertyNames(newYorkPrices).forEach(function (val, obj) {
-            elemento = document.createElement("option");
-            elemento.textContent = val + " ($" + newYorkPrices[val] + ")";
-            elemento.value = newYorkPrices[val];
-            pizzaSelectionBox.appendChild(elemento);
-        });
-        
-    } else if (document.form.dough.value === "gluten free") {
-        Object.getOwnPropertyNames(glutenFreePrices).forEach(function (val, obj) {
-            elemento = document.createElement("option");
-            elemento.textContent = val + " ($" + glutenFreePrices[val] + ")";
-            elemento.value = glutenFreePrices[val];
-            pizzaSelectionBox.appendChild(elemento);
-        });
+    if (pizzaSelectionBox.childElementCount === 1) {
+        if (document.form.dough.value === "hand tossed") {
+
+            Object.getOwnPropertyNames(handTossedPrices).forEach(function (val, obj) {
+                elemento = document.createElement("option");
+                elemento.textContent = val + " ($" + handTossedPrices[val] + ")";
+                elemento.value = handTossedPrices[val];
+                pizzaSelectionBox.appendChild(elemento);
+            });
+
+        } else if (document.form.dough.value === "thin crust") {
+            Object.getOwnPropertyNames(thinCrustPrices).forEach(function (val, obj) {
+                elemento = document.createElement("option");
+                elemento.textContent = val + " ($" + thinCrustPrices[val] + ")";
+                elemento.value = thinCrustPrices[val];
+                pizzaSelectionBox.appendChild(elemento);
+            });
+
+        } else if (document.form.dough.value === "new york style") {
+            Object.getOwnPropertyNames(newYorkPrices).forEach(function (val, obj) {
+                elemento = document.createElement("option");
+                elemento.textContent = val + " ($" + newYorkPrices[val] + ")";
+                elemento.value = newYorkPrices[val];
+                pizzaSelectionBox.appendChild(elemento);
+            });
+
+        } else if (document.form.dough.value === "gluten free") {
+            Object.getOwnPropertyNames(glutenFreePrices).forEach(function (val, obj) {
+                elemento = document.createElement("option");
+                elemento.textContent = val + " ($" + glutenFreePrices[val] + ")";
+                elemento.value = glutenFreePrices[val];
+                pizzaSelectionBox.appendChild(elemento);
+            });
+        }
+    } else {
+        pizzaSelectionBox.removeChild(pizzaSelectionBox.childNodes[2]);
+        doughSelections();
     }
+        
 }
 
-
-
-/* Delivery and Pizza Build Validation*/
+doughType.addEventListener("click", doughSelections, false);
+/*----------------------------------------------
+    Delivery and Pizza Build Validation
+------------------------------------------------*/
+/*var deliveryInfoSection = $("delivery_info");*/
 
 function formValidation() {
     "use strict";
@@ -169,6 +183,7 @@ function formValidation() {
 
     if (document.form.name.value.length === 0 || regName.test(document.form.name.value) === true) {
         window.console.log("Error in name!");
+        document.form.name.focus();
         document.form.name.style.backgroundColor = "#FF9999";
         return false;
     } else {
@@ -177,6 +192,7 @@ function formValidation() {
     
     if (document.form.addtype.value === "other" && document.form.other.value.length === 0) {
         window.console.log("Error in Address Type!");
+        document.form.addtype.focus();
         document.form.other.style.backgroundColor = "#FF9999";
         return false;
     } else {
@@ -194,7 +210,7 @@ function formValidation() {
     
     if (document.form.delivery_city.value.length === 0) {
         window.console.log("Error in City");
-        /*document.form.delivery_city.focus();*/
+        document.form.delivery_city.focus();
         document.form.delivery_city.style.backgroundColor = "#FF9999";
         return false;
     } else {
@@ -252,7 +268,12 @@ function formValidation() {
     return true;
 }
 
-/*Billing Information Validation*/
+/*deliveryInfoSection.addEventListener("blur", formValidation, true);*/
+/*----------------------------------------------
+    Billing Information Validation
+------------------------------------------------*/
+
+var finalButton = $("form-submit");
 
 function billingValidation() {
     "use strict";
@@ -314,7 +335,7 @@ function billingValidation() {
         }
     }
     
-    /*Credit Card Number Validation*/
+    /*Credit Card Number Validation - Empty Textbox*/
         
     if (document.form.cc_number.value.length === 0) {
         elemento = document.createElement("option");
@@ -366,30 +387,38 @@ function billingValidation() {
     window.alert("Your order is complete!");
 }
 
-/*Testing CC Validation Funciton*/
+finalButton.addEventListener("click", billingValidation, false);
+/*----------------------------------------------
+        Credit Card Validation
+------------------------------------------------*/
 
 function creditCardValidation() {
     "use strict";
     var cCNum = document.form.cc_number.value,
         splitCCNum = cCNum.split(""),
-        ccValue = document.form.cc_number.value,
+        cC = $("cc_number"),
         checksummed,
+        elemento,
+        newContent,
         regCC = /^\d+$/,
         cCDiv = $("cc_number_div");
     
     function cCError(text) {
-        window.console.log(cCDiv.childElementCount);
         if (cCDiv.childElementCount === 1) {
-            var elemento = document.createElement("option");
-            elemento.textContent = text;
+            elemento = document.createElement("div");
             elemento.value = "error";
-            cCDiv.appendChild(elemento);
-
+            elemento.setAttribute("class", "error");
+            newContent = document.createTextNode(text);
+            elemento.appendChild(newContent);
+            cCDiv.insertBefore(elemento, cC.nextSibling);
+            
             document.form.cc_number.focus();
             document.form.cc_number.style.backgroundColor = "#FF9999";
-            return false;
         } else {
-            cCDiv.childNodes[1].textContent = text;
+            console.log("Child Element Count: " + cCDiv.childElementCount);
+            console.log("elemento is typeof: " + typeof elemento);
+            cCDiv.removeChild(cCDiv.childNodes[2]);
+            cCError(text);
         }
     }
     
@@ -420,19 +449,24 @@ function creditCardValidation() {
             return true;
         }
     }
-    
+
     function displayCCType(text) {
         if (cCDiv.childElementCount === 1) {
-            var elemento = document.createElement("option");
-            elemento.textContent = text;
-            elemento.value = text;
-            cCDiv.appendChild(elemento);
+            elemento = document.createElement("div");
+            elemento.setAttribute("class", "cardDisplay");
+            newContent = document.createTextNode(text);
+            elemento.appendChild(newContent);
+            cCDiv.insertBefore(elemento, cC.nextSibling);
         } else {
-            cCDiv.childNodes[1].textContent = text;
+            cCDiv.removeChild(elemento);
+            displayCCType(text);
         }
     }
     
-    if (regCC.test(cCNum) === false) {
+    if (cCNum.length === 0) {
+        cCError("Credit Card Required");
+        return false;
+    } else if (regCC.test(cCNum) === false) {
         cCError("Numbers only");
         return false;
     } else if (splitCCNum.length !== 13 && splitCCNum.length !== 15 && splitCCNum.length !== 16) {
@@ -464,8 +498,11 @@ function creditCardValidation() {
 
 var creditCard = $("cc_number");
 creditCard.addEventListener("blur", creditCardValidation, false);
+/*----------------------------------------------
+        Build Your Order Confirmation
+------------------------------------------------*/
 
-/*Build Your Order Confirmation*/
+var finishedBuildingPizzaBtn = $("fin-build-btn");
 
 function finishedBuildingPizza() {
     "use strict";
@@ -486,7 +523,12 @@ function finishedBuildingPizza() {
     }
 }
 
-/*Calculate Totals*/
+finishedBuildingPizzaBtn.addEventListener("click", finishedBuildingPizza, false);
+/*----------------------------------------------
+        Calculating Cost Total
+------------------------------------------------*/
+
+var buildPizzaSection = $("build-order-section");
 
 function calTotal() {
     "use strict";
@@ -498,10 +540,10 @@ function calTotal() {
 
     totalCalc += parseFloat(doughType);
     
-    if (document.form.cheese.value === "cheese-extra") {totalCalc += 2.99;}
-    if (document.form.cheese.value === "cheese-double") {totalCalc += 3.99;}
-    if (document.form.sauce.value === "sauce-hearty") {totalCalc += 0.99;}
-    if (document.form.sauce.value === "sauce-bbq") {totalCalc += 1.99;}
+    if (document.form.cheese.value === "cheese-extra") {totalCalc += 2.99; }
+    if (document.form.cheese.value === "cheese-double") {totalCalc += 3.99; }
+    if (document.form.sauce.value === "sauce-hearty") {totalCalc += 0.99; }
+    if (document.form.sauce.value === "sauce-bbq") {totalCalc += 1.99; }
     
     for (i = 0; i < toppingChecks.length; i++) {
         if (toppingChecks[i].checked === true) {
@@ -512,17 +554,7 @@ function calTotal() {
     total.value = totalCalc.toFixed(2).toString();
 }
 
-var buildPizzaSection = $("build-order-section");
+
 buildPizzaSection.addEventListener("change", calTotal, false);
-
-/*'Finished Building Pizza' Button*/
-
-var finishedBuildingPizzaBtn = $("fin-build-btn");
-finishedBuildingPizzaBtn.addEventListener("click", finishedBuildingPizza, false);
-
-/*Form Submit Button*/
-
-var finalButton = $("form-submit");
-finalButton.addEventListener("click", billingValidation, false);
 
 
