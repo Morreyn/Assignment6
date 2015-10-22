@@ -31,7 +31,7 @@
         <div id="main" class="row marketing mainhide">
             <div class="col-lg-6">
                 <form name="form" role="form" class="form-horizontal">
-                    
+                    <div id="delivery_info">
                     <fieldset id="field1">
                         <legend>Delivery Information</legend>
                         <div class="form-group">
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                     </fieldset>
-
+                    </div>
                     
                     <div id="billing_info_div" class="form-group mainhide">
                         <fieldset id="field2">
@@ -217,7 +217,9 @@
                         <div id="dough_box" class="form-group mainhide">
                             <label for="pizza_selection" class="control-label col-sm-3">Selection:</label>
                             <div class="col-sm-8">
-                                <select name="pizza_selection" id="pizza_selection" class="form-control"></select>
+                                <select name="pizza_selection" id="pizza_selection" class="form-control">
+                                    <option value="0.00">Select to see available dough sizes</option>
+                                </select>
                             </div>
                         </div>
                         <div id="cheese_box" class="form-group mainhide">
